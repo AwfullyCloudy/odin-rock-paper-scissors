@@ -1,3 +1,13 @@
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
+
+rock.addEventListener("click", () => playRound("rock", getComputerChoice()));
+paper.addEventListener("click", () => playRound("paper", getComputerChoice()));
+scissors.addEventListener("click", () => playRound("scissors", getComputerChoice()));
+
+const state = document.querySelector("game");
+game.textContent = "";
 
 function getComputerChoice() {
     let choice, choiceMath;
@@ -14,57 +24,47 @@ function getComputerChoice() {
     return choice;
 }
 
-function getHumanChoice() {
-    let choice = prompt("Rock, paper, or scissors?");
-    return choice;
-}
-
-const rock = document.querySelector("#rock");
-const paper = document.querySelector("#paper");
-const scissors = document.querySelector("#scissors");
-
-rock.addEventListener("click", () => playRound("rock", getComputerChoice()));
-paper.addEventListener("click", () => playRound("paper", getComputerChoice()));
-scissors.addEventListener("click", () => playRound("scissors", getComputerChoice()));
-
-
-
 function playRound(humanChoice, computerChoice) {
-    let roundWinner = '';
     humanChoice = humanChoice.toLowerCase();
     computerChoice = computerChoice.toLowerCase();
 
     if (humanChoice == "rock" && computerChoice == "paper") {
-        console.log("PC Chose Paper! You Chose Rock! You Lose!");
-        roundWinner = 'C';
+
+        game.textContent = "PC Chose Paper! You Chose Rock! You Lose!";
+        console.log("PC Chose Paper! You Chose Rock! You Lose!")
+        computerScore += 1;
     }
     else if (humanChoice == "rock" && computerChoice == "scissors") {
+        game.textContent = "PC Chose Scissors! You Chose Rock! You Win!";
         console.log("PC Chose Scissors! You Chose Rock! You Win!");
-        roundWinner = 'H';
+        computerScore += 1;
     }
     else if (humanChoice == "paper" && computerChoice == "scissors") {
+        game.textContent = "PC Chose Scissors! You Chose Paper! You Lose!";
         console.log("PC Chose Scissors! You Chose Paper! You Lose!");
-        roundWinner = 'C';
+        computerScore += 1;
 
     }
     else if (humanChoice == "paper" && computerChoice == "rock") {
+        game.textContent = "PC Chose Rock! You Chose Paper! You Win!";
         console.log("PC Chose Rock! You Chose Paper! You Win!");
-        roundWinner = 'H';
+        computerScore += 1;
 
     }
     else if (humanChoice == "scissors" && computerChoice == "rock") {
+        game.textContent = "PC Chose Rock! You Chose Scissors! You Lose!";
         console.log("PC Chose Rock! You Chose Scissors! You Lose!");
-        roundWinner = 'C';
+        computerScore += 1;
     }
     else if (humanChoice == "scissors" && computerChoice == "paper") {
+        game.textContent = "PC Chose Paper! You Chose Scissors! You Win!";
         console.log("PC Chose Paper! You Chose Scissors! You Win!");
-        roundWinner = 'H';
+        computerScore += 1;
     }
     else {
+        game.textContent = "Tie!";
         console.log("Tie!");
-        roundWinner = 'T';
     }
-    return roundWinner;
 }
 
 /*
