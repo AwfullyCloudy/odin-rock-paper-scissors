@@ -1,4 +1,3 @@
-playGame();
 
 function getComputerChoice() {
     let choice, choiceMath;
@@ -19,6 +18,12 @@ function getHumanChoice() {
     let choice = prompt("Rock, paper, or scissors?");
     return choice;
 }
+
+
+
+
+
+
 
 function playRound(humanChoice, computerChoice) {
     let roundWinner = '';
@@ -58,6 +63,7 @@ function playRound(humanChoice, computerChoice) {
     return roundWinner;
 }
 
+/*
 function playGame() {
     let humanScore = 0, computerScore = 0;
     let roundWinner;
@@ -81,3 +87,4 @@ function playGame() {
         console.log("Its a tie!");
     }
 }
+    */
